@@ -1,0 +1,275 @@
+[
+    {
+        "label": "body",
+        "importPath": "apifairy",
+        "description": "apifairy",
+        "isExtraImport": true,
+        "detail": "apifairy",
+        "documentation": {}
+    },
+    {
+        "label": "other_responses",
+        "importPath": "apifairy",
+        "description": "apifairy",
+        "isExtraImport": true,
+        "detail": "apifairy",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "importPath": "apifairy",
+        "description": "apifairy",
+        "isExtraImport": true,
+        "detail": "apifairy",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "abort",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "current_app",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "EntrySchema",
+        "importPath": "project.schemas.journal",
+        "description": "project.schemas.journal",
+        "isExtraImport": true,
+        "detail": "project.schemas.journal",
+        "documentation": {}
+    },
+    {
+        "label": "NewEntrySchema",
+        "importPath": "project.schemas.journal",
+        "description": "project.schemas.journal",
+        "isExtraImport": true,
+        "detail": "project.schemas.journal",
+        "documentation": {}
+    },
+    {
+        "label": "IntegrityError",
+        "importPath": "sqlalchemy.exc",
+        "description": "sqlalchemy.exc",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.exc",
+        "documentation": {}
+    },
+    {
+        "label": "SQLAlchemyError",
+        "importPath": "sqlalchemy.exc",
+        "description": "sqlalchemy.exc",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.exc",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "werkzeug.exceptions",
+        "description": "werkzeug.exceptions",
+        "isExtraImport": true,
+        "detail": "werkzeug.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "InternalServerError",
+        "importPath": "werkzeug.exceptions",
+        "description": "werkzeug.exceptions",
+        "isExtraImport": true,
+        "detail": "werkzeug.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "create_app",
+        "importPath": "project",
+        "description": "project",
+        "isExtraImport": true,
+        "detail": "project",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "get_journals",
+        "kind": 2,
+        "importPath": "project.api.routes.journal",
+        "description": "project.api.routes.journal",
+        "peekOfCode": "def get_journals():\n    \"\"\"Return all journal entries\"\"\"\n    return messages\n@journal.route(\"/\", methods=[\"POST\"])\n@body(NewEntrySchema)\n@response(EntrySchema, 201)\ndef add_journal_entry(kwargs):\n    \"\"\"Add a new journal entry\"\"\"\n    new_message = dict(**kwargs, id=messages[-1][\"id\"] + 1)\n    messages.append(new_message)",
+        "detail": "project.api.routes.journal",
+        "documentation": {}
+    },
+    {
+        "label": "add_journal_entry",
+        "kind": 2,
+        "importPath": "project.api.routes.journal",
+        "description": "project.api.routes.journal",
+        "peekOfCode": "def add_journal_entry(kwargs):\n    \"\"\"Add a new journal entry\"\"\"\n    new_message = dict(**kwargs, id=messages[-1][\"id\"] + 1)\n    messages.append(new_message)\n    return new_message",
+        "detail": "project.api.routes.journal",
+        "documentation": {}
+    },
+    {
+        "label": "messages",
+        "kind": 5,
+        "importPath": "project.api.routes.journal",
+        "description": "project.api.routes.journal",
+        "peekOfCode": "messages = [\n    dict(id=1, entry=\"The sun was shining when I woke up this morning.\"),\n    dict(id=2, entry=\"I tried a new fruit mixture in my oatmeal for breakfast.\"),\n    dict(id=3, entry=\"Today I ate a great sandwich for lunch.\"),\n]\njournal = Blueprint(\"journal_api\", __name__)\n@journal.route(\"/\", methods=[\"GET\"])\n@response(EntrySchema)\ndef get_journals():\n    \"\"\"Return all journal entries\"\"\"",
+        "detail": "project.api.routes.journal",
+        "documentation": {}
+    },
+    {
+        "label": "journal",
+        "kind": 5,
+        "importPath": "project.api.routes.journal",
+        "description": "project.api.routes.journal",
+        "peekOfCode": "journal = Blueprint(\"journal_api\", __name__)\n@journal.route(\"/\", methods=[\"GET\"])\n@response(EntrySchema)\ndef get_journals():\n    \"\"\"Return all journal entries\"\"\"\n    return messages\n@journal.route(\"/\", methods=[\"POST\"])\n@body(NewEntrySchema)\n@response(EntrySchema, 201)\ndef add_journal_entry(kwargs):",
+        "detail": "project.api.routes.journal",
+        "documentation": {}
+    },
+    {
+        "label": "NewEntrySchema",
+        "kind": 6,
+        "importPath": "project.schemas.journal",
+        "description": "project.schemas.journal",
+        "peekOfCode": "class NewEntrySchema(ma.Schema):\n    \"\"\"Schema defining the attributes when creating a new journal entry.\"\"\"\n    entry = ma.String(required=True)\nclass EntrySchema(ma.Schema):\n    \"\"\"Schema defining the attributes in a journal entry.\"\"\"\n    id = ma.Integer()\n    entry = ma.String()",
+        "detail": "project.schemas.journal",
+        "documentation": {}
+    },
+    {
+        "label": "EntrySchema",
+        "kind": 6,
+        "importPath": "project.schemas.journal",
+        "description": "project.schemas.journal",
+        "peekOfCode": "class EntrySchema(ma.Schema):\n    \"\"\"Schema defining the attributes in a journal entry.\"\"\"\n    id = ma.Integer()\n    entry = ma.String()",
+        "detail": "project.schemas.journal",
+        "documentation": {}
+    },
+    {
+        "label": "http_error",
+        "kind": 2,
+        "importPath": "project.errors",
+        "description": "project.errors",
+        "peekOfCode": "def http_error(error):\n    return {\n        \"code\": error.code,\n        \"message\": error.name,\n        \"description\": error.description,\n    }, error.code\n@errors.app_errorhandler(IntegrityError)\ndef sqlalchemy_integrity_error(error):  # pragma: no cover\n    return {\n        \"code\": 400,",
+        "detail": "project.errors",
+        "documentation": {}
+    },
+    {
+        "label": "sqlalchemy_integrity_error",
+        "kind": 2,
+        "importPath": "project.errors",
+        "description": "project.errors",
+        "peekOfCode": "def sqlalchemy_integrity_error(error):  # pragma: no cover\n    return {\n        \"code\": 400,\n        \"message\": \"Database integrity error\",\n        \"description\": str(error.orig),\n    }, 400\n@errors.app_errorhandler(SQLAlchemyError)\ndef sqlalchemy_error(error):  # pragma: no cover\n    if current_app.config[\"DEBUG\"] is True:\n        return {",
+        "detail": "project.errors",
+        "documentation": {}
+    },
+    {
+        "label": "sqlalchemy_error",
+        "kind": 2,
+        "importPath": "project.errors",
+        "description": "project.errors",
+        "peekOfCode": "def sqlalchemy_error(error):  # pragma: no cover\n    if current_app.config[\"DEBUG\"] is True:\n        return {\n            \"code\": InternalServerError.code,\n            \"message\": \"Database error\",\n            \"description\": str(error),\n        }, 500\n    else:\n        return {\n            \"code\": InternalServerError.code,",
+        "detail": "project.errors",
+        "documentation": {}
+    },
+    {
+        "label": "validation_error",
+        "kind": 2,
+        "importPath": "project.errors",
+        "description": "project.errors",
+        "peekOfCode": "def validation_error(code, messages):  # pragma: no cover\n    return {\n        \"code\": code,\n        \"message\": \"Validation Error\",\n        \"description\": (\n            \"The server found one or more errors in the \" \"information that you sent.\"\n        ),\n        \"errors\": messages,\n    }, code",
+        "detail": "project.errors",
+        "documentation": {}
+    },
+    {
+        "label": "errors",
+        "kind": 5,
+        "importPath": "project.errors",
+        "description": "project.errors",
+        "peekOfCode": "errors = Blueprint(\"errors\", __name__)\n@errors.app_errorhandler(HTTPException)\ndef http_error(error):\n    return {\n        \"code\": error.code,\n        \"message\": error.name,\n        \"description\": error.description,\n    }, error.code\n@errors.app_errorhandler(IntegrityError)\ndef sqlalchemy_integrity_error(error):  # pragma: no cover",
+        "detail": "project.errors",
+        "documentation": {}
+    },
+    {
+        "label": "ValidationError",
+        "kind": 6,
+        "importPath": "project.exceptions",
+        "description": "project.exceptions",
+        "peekOfCode": "class ValidationError(ValueError):\n    pass",
+        "detail": "project.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app = create_app()",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "kind": 6,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "class Config:\n    # app  database options\n    APIFAIRY_TITLE: str = \"BoilerPlate API\"\n    APIFAIRY_VERSION: str = \"1.0\"\n    APIFAIRY_UI: str = \"elements\"\n    USE_CORS = as_bool(os.getenv(\"USE_CORS\") or \"yes\")\n    CORS_SUPPORTS_CREDENTIALS = True",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "as_bool",
+        "kind": 2,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "def as_bool(value):\n    if value:\n        return value.lower() in [\"true\", \"yes\", \"on\", \"1\"]\n    return False\nclass Config:\n    # app  database options\n    APIFAIRY_TITLE: str = \"BoilerPlate API\"\n    APIFAIRY_VERSION: str = \"1.0\"\n    APIFAIRY_UI: str = \"elements\"\n    USE_CORS = as_bool(os.getenv(\"USE_CORS\") or \"yes\")",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "basedir",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "basedir = os.path.abspath(os.path.dirname(__file__))\ndef as_bool(value):\n    if value:\n        return value.lower() in [\"true\", \"yes\", \"on\", \"1\"]\n    return False\nclass Config:\n    # app  database options\n    APIFAIRY_TITLE: str = \"BoilerPlate API\"\n    APIFAIRY_VERSION: str = \"1.0\"\n    APIFAIRY_UI: str = \"elements\"",
+        "detail": "config",
+        "documentation": {}
+    }
+]

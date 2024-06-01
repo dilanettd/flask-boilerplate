@@ -13,8 +13,8 @@ def as_bool(value):
 
 class Config:
     # app  database options
-    APIFAIRY_TITLE: str = os.getenv("BoilerPlate API")
-    APIFAIRY_VERSION: str = os.getenv("1.0")
-    APIFAIRY_UI: str = os.getenv("elements")
+    APIFAIRY_TITLE: str = "BoilerPlate API"
+    APIFAIRY_VERSION: str = "1.0"
+    APIFAIRY_UI: str = "elements"
     USE_CORS = as_bool(os.getenv("USE_CORS") or "yes")
     CORS_SUPPORTS_CREDENTIALS = True
