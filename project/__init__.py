@@ -85,7 +85,7 @@ def register_blueprints(app):
 
 
 def create_app(config_class=Config):
-    from app import models
+    # from app import models
 
     # Create the Flask application
     app = Flask(__name__)
@@ -98,14 +98,14 @@ def create_app(config_class=Config):
     if app.config["USE_CORS"]:  # pragma: no branch
         cors.init_app(app)
 
-    @app.shell_context_processor
-    def shell_context():  # pragma: no cover
-        ctx = {"db": db}
-        for attr in dir(models):
-            model = getattr(models, attr)
-            if hasattr(model, "__bases__") and db.Model in getattr(model, "__bases__"):
-                ctx[attr] = model
-        return ctx
+    # @app.shell_context_processor
+    # def shell_context():  # pragma: no cover
+    #     ctx = {"db": db}
+    #     for attr in dir(models):
+    #         model = getattr(models, attr)
+    #         if hasattr(model, "__bases__") and db.Model in getattr(model, "__bases__"):
+    #             ctx[attr] = model
+    #     return ctx
 
     @app.route("/")
     def index():  # pragma: no cover
